@@ -26,8 +26,6 @@ class EstatesController < ApplicationController
 
  def edit
    @estate = Estate.find(params[:id])
-   @station1 = @estate.station1s.find_by(estate_id:@estate.id)
-   @station2 = @estate.station2s.find_by(estate_id:@estate.id)
  end
 
  def update
