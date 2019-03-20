@@ -1,3 +1,3 @@
 class Station2 < ApplicationRecord
-  belongs_to :estate
+  belongs_to :estate, optional: true
 end
