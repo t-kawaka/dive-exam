@@ -29,14 +29,30 @@
 .stationlist h4{
   margin-left: -20px;
   padding-top: 10px;
-  border-top: 1px solid black;
 }
 .stationlist{
   padding-left: 40px;
 }
 
+.stationlist1 h4{
+  margin-left: -20px;
+  padding-top: 10px;
+  border-top: 1px solid black;
+}
+.stationlist1{
+  padding-left: 40px;
+}
+
+.stationlist2 h4{
+  margin-left: -20px;
+  padding-top: 10px;
+}
+.stationlist2{
+  padding-left: 40px;
+}
+
 td{
-  padding: 12px 0;
+  padding: 12px 8px;
 }
 table.show_page{
   margin-top:10px;
@@ -57,6 +73,10 @@ table.show_page td{
 }
 
 .station_title h4{
+  padding-top: 10px;
+}
+
+.station_title1 h4{
   padding-top: 10px;
   border-top: 1px solid black;
 }
