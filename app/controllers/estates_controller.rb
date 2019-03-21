@@ -1,51 +1,52 @@
 class EstatesController < ApplicationController
+  before_action :set_estate, only:%i[show, edit, update, destroy]
   def index
    @estates = Estate.all
- end
+  end
 
- def show
-   @estate = Estate.find(params[:id])
+  def show
    @station1 = @estate.station1s.find_by(estate_id:@estate.id)
    @station2 = @estate.station2s.find_by(estate_id:@estate.id)
- end
+  end
 
- def new
+  def new
    @estate = Estate.new
    @estate.station1s.build
    @estate.station2s.build
- end
+  end
 
- def create
+  def create
    @estate = Estate.new(estate_params)
    if @estate.save
    redirect_to estates_path, notice:"投稿を作成しました。"
    else
      render 'new'
    end
- end
+  end
 
- def edit
-   @estate = Estate.find(params[:id])
- end
+  def edit
+  end
 
- def update
-   @estate = Estate.find(params[:id])
+  def update
    if @estate.update(estate_params)
      redirect_to estates_path, notice:"投稿を編集しました。"
    else
      render 'new'
    end
- end
+  end
 
- def destroy
-   @estate = Estate.find(params[:id])
+  def destroy
    @estate.destroy
    redirect_to estates_path, notice:"投稿を削除しました。"
- end
+  end
 
- private
+  private
 
- def estate_params
+  def estate_params
    params.require(:estate).permit(:house,:money,:address,:age,:information , station1s_attributes: [:id, :rail,:name,:walk], station2s_attributes: [:id, :rail,:name,:walk])
- end
+  end
+
+  def set_estate
+   @estate = Estate.find_by(params[:id])
+  end
 end
