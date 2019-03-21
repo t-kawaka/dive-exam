@@ -25,6 +25,9 @@ class EstatesController < ApplicationController
   end
 
   def edit
+    if @estate.station2s.blank?
+      @estate.station2s.build
+    end
   end
 
   def update
