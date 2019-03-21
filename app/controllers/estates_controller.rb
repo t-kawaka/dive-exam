@@ -47,6 +47,6 @@ class EstatesController < ApplicationController
   end
 
   def set_estate
-   @estate = Estate.find_by(params[:id])
+   @estate = Estate.find(params[:id])
   end
 end
