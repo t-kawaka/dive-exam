@@ -1,5 +1,5 @@
 class EstatesController < ApplicationController
-  before_action :set_estate, only:%i[show, edit, update, destroy]
+  before_action :set_estate, only:[:show, :edit, :update, :destroy]
   def index
    @estates = Estate.all
   end
