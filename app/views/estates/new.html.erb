@@ -50,6 +50,10 @@
         <%= station1.label :徒歩分数 %><br>
         <%= station1.text_field :walk %>分
       </div>
+      <% if @estate.persisted? %>
+        <%= station1.check_box :_destroy %>
+        <%= station1.label :_destroy, "削除" %><br />
+      <% end %>
     <% end %>
     <div class="station_title">
       <h4>最寄り駅2</h4>
@@ -67,6 +71,10 @@
         <%= station2.label :徒歩分数 %><br>
         <%= station2.text_field :walk %>分
       </div>
+      <% if @estate.persisted? %>
+        <%= station2.check_box :_destroy %>
+        <%= station2.label :_destroy, "削除" %><br />
+      <% end %>
     <% end %>
     <div class="submit">
       <%= f.submit value="登録する" %>

@@ -25,6 +25,9 @@ class EstatesController < ApplicationController
   end
 
   def edit
+    if @estate.station1s.blank?
+      @estate.station1s.build
+    end
     if @estate.station2s.blank?
       @estate.station2s.build
     end
@@ -46,7 +49,7 @@ class EstatesController < ApplicationController
   private
 
   def estate_params
-   params.require(:estate).permit(:house,:money,:address,:age,:information , station1s_attributes: [:id, :rail,:name,:walk], station2s_attributes: [:id, :rail,:name,:walk])
+   params.require(:estate).permit(:house,:money,:address,:age,:information , station1s_attributes: [:id, :rail,:name,:walk,:_destroy], station2s_attributes: [:id, :rail,:name,:walk,:_destroy])
   end
 
   def set_estate
