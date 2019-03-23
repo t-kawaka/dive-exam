@@ -33,7 +33,7 @@
     <div class="station_title1">
       <h4>最寄り駅1</h4>
     </div>
-    <%= f.fields_for :station1s, @estate.station1s do |station1| %>
+    <%= f.fields_for :station1s, @estate.station1s.build do |station1| %>
       <div class="title">
         <%= station1.label :路線名 %><br>
         <%= station1.text_field :rail %>
@@ -54,7 +54,7 @@
     <div class="station_title">
       <h4>最寄り駅2</h4>
     </div>
-    <%= f.fields_for :station2s, @estate.station2s do |station2| %>
+    <%= f.fields_for :station2s,  @estate.station2s.build do |station2| %>
       <div class="title">
         <%= station2.label :路線名 %><br>
         <%= station2.text_field :rail %>
