@@ -37,7 +37,7 @@ class EstatesController < ApplicationController
     if @estate.update(estate_params)
       redirect_to estates_path, notice:"投稿を編集しました。"
     else
-      render 'new'
+      render 'edit'
     end
   end
 
