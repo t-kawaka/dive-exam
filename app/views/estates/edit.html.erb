@@ -1,0 +1,93 @@
+<div class="input_edit_title">
+  <h2>編集</h2>
+</div>
+<div class="edit_list">
+  <h2>物件編集</h2>
+</div>
+<div class="list">
+  <%= form_for @estate do |f| %>
+    <% if @estate.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @estate.errors.count %>件のエラーがあります。</h2>
+        <ul>
+          <% @estate.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="title">
+      <%= f.label :物件名 %><br>
+      <%= f.text_field :house %>
+    </div>
+    <div class="title">
+      <%= f.label :賃料 %><br>
+      <%= f.text_field :money %>円
+    </div>
+    <div class="title">
+      <%= f.label :住所 %><br>
+      <%= f.text_field :address %>
+    </div>
+    <div class="title">
+      <%= f.label :築年数 %><br>
+      <%= f.text_field :age %>年
+    </div>
+    <div class="title">
+      <%= f.label :備考 %><br>
+      <%= f.text_area :information %>
+    </div>
+    <div class="station_title1">
+      <h4>最寄り駅1</h4>
+    </div>
+    <%= f.fields_for :station1s do |station1| %>
+      <div class="title">
+        <%= station1.label :路線名 %><br>
+        <%= station1.text_field :rail %>
+      </div>
+      <div class="title">
+        <%= station1.label :駅名 %><br>
+        <%= station1.text_field :name %>
+      </div>
+      <div class="title">
+        <%= station1.label :徒歩分数 %><br>
+        <%= station1.text_field :walk %>分
+      </div>
+      <% if @estate.persisted? %>
+        <%= station1.check_box :_destroy %>
+        <%= station1.label :_destroy, "削除" %><br />
+      <% end %>
+    <% end %>
+    <div class="station_title">
+      <h4>最寄り駅2</h4>
+    </div>
+    <%= f.fields_for :station2s do |station2| %>
+      <div class="title">
+        <%= station2.label :路線名 %><br>
+        <%= station2.text_field :rail %>
+      </div>
+      <div class="title">
+        <%= station2.label :駅名 %><br>
+        <%= station2.text_field :name %>
+      </div>
+      <div class="title">
+        <%= station2.label :徒歩分数 %><br>
+        <%= station2.text_field :walk %>分
+      </div>
+      <% if @estate.persisted? %>
+        <%= station2.check_box :_destroy %>
+        <%= station2.label :_destroy, "削除" %><br />
+      <% end %>
+    <% end %>
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+
+<table class="show_page">
+  <tr>
+    <td><%= link_to "詳細", estate_path(@estate.id) %></td>
+    <td>|</td>
+    <td><%= link_to "戻る", estates_path %></td>
+  </tr>
+</table>

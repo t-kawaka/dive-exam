@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rail: MyString
+  name: MyString
+  walk: 1
+  estate: one
+
+two:
+  rail: MyString
+  name: MyString
+  walk: 1
+  estate: two
